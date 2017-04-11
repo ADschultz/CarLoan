@@ -11,7 +11,7 @@ import java.util.Random;
  *
  * @author mochan
  */
-public class GuessGame {
+public class GuessGame  {
     // Number that the user is trying to guess
     int num;
     // Number user has guessed
@@ -19,11 +19,13 @@ public class GuessGame {
     // Number of tries
     int tries;
     
+    public int[] a = new int[500];
     // Generate a new number for the user to guess
     public void generateNum() {        
         Random a = new Random();
         int b = a.nextInt(1000) + 1;
         num = b;
+        tries = 0;
     }
     
     // Getters and setters
@@ -45,20 +47,21 @@ public class GuessGame {
     }
 
     public int getTries() 
-    {
-       tries = 1;
-       for(int i = 0; i < tries; i++)
-       {
-           i = tries + 1;
-           i = tries;
-       }
-       return tries;
-    }
-
-    public void setTries(int tries) {
-        this.tries = tries;
+    {   
+        
+        tries = tries + 1;
+        return tries;
     }
 
     
+    
+
+    public void setTries(int tries) 
+    {
+        this.tries = tries;
+    }
+    
+
+   
     
 }

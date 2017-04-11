@@ -26,27 +26,40 @@
                     // Get the value guessed from the session
                     String num_str = session.getAttribute("number").toString();
                     int num = Integer.parseInt(num_str);
-                    guess.setNum(num);      
+                    
+                    guess.setNum(num);
+                   
                     
                     // Inform the user if their guess is correct or not        
                     if (guess.getNum() == guess.getGuess())
                     {
-                        guess.getTries() + 1;
+                    
                         out.println("Correct! You have guessed correctly.");
+                        
                     }
                     if (guess.getNum() < guess.getGuess())
-                        
+                    {
+                      
                         out.println("Incorrect! Go lower.");
+                    }
+                     
+                        
                     if (guess.getNum() > guess.getGuess())
-                        out.println("Incorrect! Go higher.");                                         
+                    {
+                        
+                        out.println("Incorrect! Go higher.");  
+                    }
+                        
+                                                               
                 %>
             </p>            
         </h2>
             
         <h3>
             <%
+                int mtries = guess.getTries();
                 // Inform the user how many tries it has taken
-                out.println("Number of tries: " + guess.getTries()) ;
+                out.println("Number of tries: " + mtries ) ;
             %>
         </h3> 
            
@@ -62,5 +75,14 @@
         <p>
             <a href="GuessingGame.jsp">Start a new guessing game</a>
         </p>
+        <p>
+            <%
+                guess.a[mtries] = guess.getGuess() ;
+                for(int i = 0; i < mtries; i++)
+                {
+                    out.println("Try " + (i + 1)  + ": " + guess.a[i + 1]);
+                }
+            %>    
+        <p>
     </body>
 </html>
